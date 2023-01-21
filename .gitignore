@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Additional provided files
+*.txt
+
+# Temporary files
+temp.py
+test.py
