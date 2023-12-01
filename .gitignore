@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # Additional provided files
-*.txt
+# *.txt
 
 # Temporary files
 temp.py
