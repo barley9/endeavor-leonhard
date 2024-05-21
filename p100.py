@@ -1,15 +1,19 @@
 import math
 
+# N = 120
+# B = (1 + math.sqrt(1 + 2 * N * (N - 1))) / 2
 
-p = 0  # power of 10 to begin search
+# for n in range(21, 120 + 1, 4):
+#     print(n, (n * (n - 1)) % 4, (1 + math.sqrt(1 + 2 * n * (n - 1))) / 2)
 
-t = 10 ** p
+n = 20
 while True:
-    arg = 2 * t * (t - 1) + 1
-    root = math.isqrt(arg)
-    if arg - root * root == 0:  # if 'remainder' is zero, print arrangement
-        b = (1 + root) // 2
-        print(b, t - b, t)
-    t += 1
+    bminus = (1 + math.sqrt(1 + 2 * n * (n - 1))) / 2
+    bplus  = (1 + math.sqrt(1 + 2 * n * (n + 1))) / 2
 
-# print("The first valid arrangement with greater than 10 ** {} total discs has {} blue discs and {} red discs, for a total of {} discs in the box.".format(p, int(b), int(t - b), t))
+    if math.isclose(bminus - round(bminus), 0.0):
+        print(n, bminus, (bminus / n) * (bminus - 1) / (n - 1))
+    if math.isclose(bplus - round(bplus), 0.0):
+        print(n + 1, bplus, (bplus / (n + 1)) * (bplus - 1) / n)
+
+    n += 4
