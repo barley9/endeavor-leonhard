@@ -1,19 +1,17 @@
-import math
+"""
+     1  /           _________________  \
+b = --- | 1 +/- _  / 1 + 2 n (n - 1)   |
+     2  \        \/                    /
 
-# N = 120
-# B = (1 + math.sqrt(1 + 2 * N * (N - 1))) / 2
+b = number of blue disks
+n = total number of disks
+"""
 
-# for n in range(21, 120 + 1, 4):
-#     print(n, (n * (n - 1)) % 4, (1 + math.sqrt(1 + 2 * n * (n - 1))) / 2)
+import itertools
 
-n = 20
-while True:
-    bminus = (1 + math.sqrt(1 + 2 * n * (n - 1))) / 2
-    bplus  = (1 + math.sqrt(1 + 2 * n * (n + 1))) / 2
+N = 1_000  # 1_000_000_000_000
 
-    if math.isclose(bminus - round(bminus), 0.0):
-        print(n, bminus, (bminus / n) * (bminus - 1) / (n - 1))
-    if math.isclose(bplus - round(bplus), 0.0):
-        print(n + 1, bplus, (bplus / (n + 1)) * (bplus - 1) / n)
+odd_squares = (i * i for i in itertools.count(N + 1, skip=2))
 
-    n += 4
+for _ in range(10):
+    print(next(odd_squares))
